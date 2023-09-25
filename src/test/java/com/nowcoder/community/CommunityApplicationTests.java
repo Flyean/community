@@ -49,18 +49,18 @@ class CommunityApplicationTests implements ApplicationContextAware {
 	@Test
 	public void testBeanConfig() {
 		SimpleDateFormat simpleDateFormat =
-				applicationContext.getBean(SimpleDateFormat.class);
+				applicationContext.getBean(SimpleDateFormat.class); //主动获取
 		System.out.println(simpleDateFormat.format(new Date()));
 	}
 
 	@Autowired
-	@Qualifier("alphaHibernate")
+	@Qualifier("alphaHibernate") //通过名字注入，alphaDao为接口
 	private  AlphaDao alphaDao;
 
 	@Autowired
 	private AlphaService alphaService;
 
-	@Autowired
+	@Autowired //依赖注入
 	private SimpleDateFormat simpleDateFormat;
 
 
@@ -68,6 +68,6 @@ class CommunityApplicationTests implements ApplicationContextAware {
 	public void testDi() {
 		System.out.println(alphaDao);
 		System.out.println(alphaService);
-		System.out.println(simpleDateFormat);
+		System.out.println(simpleDateFormat.format(new Date()));
 	}
 }

@@ -65,7 +65,7 @@ public class AlphaController {
         return "some students";
     }
 
-    // /student/123
+    // /student/123，参数为路径一部分，路径变量，注解@PathVariable
     @RequestMapping(path = "/student/{id}", method = RequestMethod.GET)
     @ResponseBody
     public String getStudent(@PathVariable("id") int id) {
@@ -82,7 +82,7 @@ public class AlphaController {
         return "success";
     }
 
-    // 响应HTML数据
+    // 响应HTML数据，两种返回model view的方法
 
     @RequestMapping(path = "/teacher", method = RequestMethod.GET)
     public ModelAndView getTeacher() {

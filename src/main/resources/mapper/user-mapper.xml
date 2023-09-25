@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--与对应包的mapper对应-->
 <mapper namespace="com.nowcoder.community.dao.UserMapper">
 
     <sql id="insertFields">
@@ -30,6 +31,7 @@
         where email = #{email}
     </select>
 
+<!--id Mybatis从数据库中得到，并回填-->
     <insert id="insertUser" parameterType="User" keyProperty="id">
         insert into user (<include refid="insertFields"></include>)
         values(#{username}, #{password}, #{salt}, #{email}, #{type}, #{status}, #{activationCode}, #{headerUrl}, #{createTime})
